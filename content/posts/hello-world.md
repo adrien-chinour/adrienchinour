@@ -1,14 +1,8 @@
-+++
-authors = ["Adrien Chinour"]
-date = 2020-04-24T22:00:00Z
-draft = true
-excerpt = "Créez et déployez facilement et rapidement votre blog ou portfolio en utilisant un CMS statique. Hugo, Gatsby, Eleventy, et bien d'autres encore !"
-hero = "/images/hero-article1.png"
-timeToRead = 3
-title = "Utiliser Forestry.io, Hugo et Netlify pour son blog personnel"
-
-+++
-# Utiliser Forestry.io, Hugo et Netlify pour son blog personnel
+---
+title: "Utiliser Forestry.io, Hugo et Netlify pour son blog personnel"
+date: 2020-04-24T22:00:00Z
+draft: true
+---
 
 Depuis quelques temps j'avais envie de partager quelques sujets qui m'intéresse ainsi que les projets que je réalise. Je savais que mon besoin nécessitait un CMS mais aucune solution parmis les CMS "classique" me semblait idéale. 
 

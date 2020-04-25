@@ -5,6 +5,9 @@ title: Adrien Chinour
 theme: cupper-hugo-theme
 enableGitInfo: true
 
+taxonomies:
+  tag: tags
+
 permalinks:
   post: /:filename/
 
@@ -12,18 +15,24 @@ imaging:
   quality: 99
 
 params:
-  description: Adrien Chinour, Développeur du Web
-  homeMetaContent: Adrien Chinour, Développeur du Web
-  footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
+  description: Blog d'un développeur _du Web_.
+  homeMetaContent: Blog d'un développeur du Web. Adrien Chinour, développeur PHP.
+  footer: "Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/). _PS: Longue vie au PHP_."
+  # For more date formats see https://gohugo.io/functions/format/
+  dateFormat: Jan 2, 2006
+  katex: false
 
 menu:
   nav:
     - name: Home
       url: /
       weight: 1
-    - name: Blog
-      url: /post/
+    - name: Articles
+      url: /posts/
       weight: 2
+    - name: À Propos
+      url: /about/
+      weight: 3
 
 markup:
   defaultMarkdownHandler: goldmark

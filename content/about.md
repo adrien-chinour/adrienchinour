@@ -1,16 +1,15 @@
 ---
 date: "2014-04-09"
-title: "About"
+title: "À Propos"
 ---
 
-Hugo is the **world’s fastest framework for building websites**. It is written in Go.
+![About me](../images/about-me.gif)
 
-It makes use of a variety of open source projects including:
+* __Prénom :__ Adrien
+* __Nom :__ Chinour
+* __Email :__ contact@chinour.fr
+* __Postes actuels :__ 
+  * Développeur Backend PHP à [onepoint](https://groupeonepoint.com).
+  * Développeur Web indépendant.
 
-* https://github.com/russross/blackfriday
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+Pour découvrir mes projets : [GitHub](https://github.com/adrien-chinour) et mon parcours : [Linkedin](https://www.linkedin.com/in/achinour/).
