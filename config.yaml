@@ -3,11 +3,7 @@ languageCode: fr-FR
 defaultContentLanguage: fr
 title: Adrien Chinour
 theme: cupper-hugo-theme
-
 enableGitInfo: true
-
-taxonomies:
-  tag: tags
 
 permalinks:
   post: /:filename/
@@ -19,8 +15,6 @@ params:
   description: Adrien Chinour, Développeur du Web
   homeMetaContent: Adrien Chinour, Développeur du Web
   footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/).
-  # For more date formats see https://gohugo.io/functions/format/
-  dateFormat: 2 Jan 2006
 
 menu:
   nav:
