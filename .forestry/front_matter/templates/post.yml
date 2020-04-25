@@ -7,15 +7,6 @@ fields:
   config:
     required: true
   label: Title
-- name: date
-  type: datetime
-  label: Date
-  description: ''
-  config:
-    required: false
-    date_format: 
-    time_format: 
-    display_utc: false
 - name: tags
   type: tag_list
   default: []
