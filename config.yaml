@@ -6,7 +6,7 @@ theme: cupper-hugo-theme
 enableGitInfo: true
 
 taxonomies:
-  tag: tags
+  tag: tag
 
 permalinks:
   post: /:filename/
@@ -28,7 +28,7 @@ menu:
       url: /
       weight: 1
     - name: Articles
-      url: /posts/
+      url: /post/
       weight: 2
     - name: À Propos
       url: /about/
