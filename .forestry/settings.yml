@@ -6,9 +6,6 @@ webhook_url:
 sections:
 - type: heading
   label: Content
-- type: document
-  path: content/_index.md
-  label: Home
 - type: directory
   path: content/post
   label: Posts
@@ -22,7 +19,7 @@ sections:
   path: content/authors
   label: Authors
   create: all
-  match: "**/_index.md"
+  match: "**/*"
   templates:
   - author
 - type: directory
