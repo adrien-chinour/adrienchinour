@@ -4,7 +4,7 @@ date = 2020-04-24T22:00:00Z
 draft = true
 excerpt = "Créez et déployez facilement et rapidement votre blog ou portfolio en utilisant un CMS statique. Hugo, Gatsby, Eleventy, et bien d'autres encore !"
 hero = "/images/hero-article1.png"
-timeToRead = 1
+timeToRead = 3
 title = "Utiliser Forestry.io, Hugo et Netlify pour son blog personnel"
 
 +++
