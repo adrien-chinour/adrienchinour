@@ -15,7 +15,7 @@ imaging:
   quality: 99
 
 params:
-  description: Blog d'un développeur _du Web_.
+  description: Blog d'un _développeur du Web_.
   homeMetaContent: Blog d'un développeur du Web. Adrien Chinour, développeur PHP.
   footer: "Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme). Deployed to [Netlify](https://www.netlify.com/). _PS: Longue vie au PHP_."
   # For more date formats see https://gohugo.io/functions/format/
