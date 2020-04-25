@@ -4,7 +4,7 @@ title: "Adrien Chinour"
 pygmentsstyle: 'monokai'
 
 # Theme settings
-theme: novela
+theme: cupper-hugo-theme
 paginate: 6
 social:
   twitter: "#"
