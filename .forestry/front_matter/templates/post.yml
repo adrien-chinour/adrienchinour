@@ -11,5 +11,3 @@ fields:
   type: tag_list
   default: []
   label: Tags
-pages:
-- content/post/présentation-d-un-projet-hashiwokakero.md
