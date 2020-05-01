@@ -2,12 +2,45 @@
 label: Post
 hide_body: false
 fields:
-- name: title
-  type: text
-  config:
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: description
+    type: text
+    config:
+      required: false
+    label: Description
+  - name: date
+    type: datetime
+    label: Date
+    description: ''
+    config:
+      required: false
+      date_format:
+      time_format:
+      display_utc: false
+  - name: readingTime
+    type: number
+    label: Temps de lecture
+    description: Temps de lecture (en minutes)
+    default: 5
     required: true
-  label: Title
-- name: tags
-  type: tag_list
-  default: []
-  label: Tags
+    config:
+      min: 1
+      max:
+      step: 1
+  - name: cover
+    type: file
+    config:
+      maxSize: 250
+    label: Image de couverture
+  - name: tags
+    type: tag_list
+    default: []
+    label: Tags
+  - name: categories
+    type: tag_list
+    default: []
+    label: Categories

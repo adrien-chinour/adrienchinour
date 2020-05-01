@@ -1,24 +1,16 @@
++++
+title = " Hello world !"
+date = "2020-05-01"
+description = "Mise en ligne de ce petit site statique"
+tags = ["divers"]
++++
+
+Mise en ligne de mon premier site en utilisant la *JAMStack* : **simple mais efficace !**
+<!--more-->
 ---
-title: "Utiliser Forestry.io, Hugo et Netlify pour son blog personnel"
-date: 2020-04-24T22:00:00Z
-draft: true
----
 
-Depuis quelques temps j'avais envie de partager quelques sujets qui m'intéresse ainsi que les projets que je réalise. Je savais que mon besoin nécessitait un CMS mais aucune solution parmis les CMS "classique" me semblait idéale. 
+Je profite de ce 1er Mai pour tester la stack [Hugo](https://gohugo.io), [Forestry](https://foreestry.io) et [Netlify](https://netlify.com).
 
-## Le problème des CMS traditionnels
+Je ne vais pas expliquer un sujet que je découvre du coup voici un article très intéressant sur le sujet qui en présente les avantages:  [Go static: 5 reasons to try JAMstack on your next project](https://builtvisible.com/go-static-try-jamstack/)
 
-## La solution des CMS statiques
-
-## Déployer et administrer son site
-
-On se retrouve donc avec une solution complète qui répond aux attentes d'un site personnel:  
-
-* **Administrer** notre contenu efficacement avec des outils comme Forestry (j'ai pas regardé si il existait des projets similaires mais je pense que oui).
-* **Personnaliser** le rendu des pages en choisissant un thème existant ou en créant un nouveau thème.
-* **Déployer** les modifications rapidement en production
-
-Et en plus de ça on a des avantages supplémentaires :
-
-* La **sécurité** : aucune interface d'administration et aucune données utilisateur à traiter.
-* La **portabilité** de notre contenu : les articles ou autres sont le plus souvent rédigé en Markdown ce qui nous permet de facilement changer de solution.
+> Maintenant il reste plus qu'à écrire des articles...

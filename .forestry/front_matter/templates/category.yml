@@ -1,0 +1,9 @@
+---
+label: Category
+hide_body: false
+fields:
+  - name: title
+    type: text
+    config:
+      required: true
+    label: Name

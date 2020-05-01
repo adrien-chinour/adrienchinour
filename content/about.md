@@ -1,15 +1,20 @@
 ---
-date: "2014-04-09"
+date: "1997-07-21"
 title: "À Propos"
 ---
 
 ![About me](../images/about-me.gif)
 
-* __Prénom :__ Adrien
-* __Nom :__ Chinour
-* __Email :__ contact@chinour.fr
-* __Postes actuels :__ 
-  * Développeur Backend PHP à [onepoint](https://groupeonepoint.com).
-  * Développeur Web indépendant.
+ # Salut ! :wave:
+:boy: **Adrien Chinour** - :house: Bordeaux.
 
-Pour découvrir mes projets : [GitHub](https://github.com/adrien-chinour) et mon parcours : [Linkedin](https://www.linkedin.com/in/achinour/).
+Je suis **développeur web** junior. Je fais beaucoup de **PHP** mais pas seulement.
+
+> **:yellow_heart: Mes petits préf' :** Symfony, API Platform, Angular, Ionic
+
+Je travaille aussi un peu avec **Docker**, **GitLab CI**, **GitHub Actions**, **Circle CI**, **Heroku** pour la partie *CI/CD*.
+
+## :eyes: More
+- Pour voir mes projets : [mon github](https://github.com/adrien-chinour/)
+- Pour plus d'info : [mon Linkedin](https://www.linkedin.com/in/achinour/)
+- Pour me contacter : contact@chinour.fr
