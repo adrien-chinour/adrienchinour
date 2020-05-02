@@ -1,13 +1,12 @@
 +++
-title = " Hello world !"
-date = "2020-05-01"
+date = 2020-05-01T00:00:00Z
 description = "Mise en ligne de ce petit site statique"
 tags = ["divers"]
-+++
+title = " Hello world !"
 
++++
 Mise en ligne de mon premier site en utilisant la *JAMStack* : **simple mais efficace !**
 <!--more-->
----
 
 Je profite de ce 1er Mai pour tester la stack [Hugo](https://gohugo.io), [Forestry](https://foreestry.io) et [Netlify](https://netlify.com).
 
