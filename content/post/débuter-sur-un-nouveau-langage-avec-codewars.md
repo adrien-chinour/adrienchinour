@@ -13,8 +13,9 @@ Quand je débute sur une nouvelle techno j'ai parfois du mal avec le langage. _O
 
 <!--more-->
 
-Quand je cherche à me lancer sur une nouvelle techno c'est le plus souvent avec une idée de projet à réaliser. Même si c'est possible de s'en sortir en se formant tout au long du projet en même temps sur le langage et sûr le framework/librairie que l'on utilise il y a pas mal d'inconvénients à ça :
+Quand je cherche à me lancer sur une nouvelle techno c'est le plus souvent avec une idée de projet à réaliser. Même si il est possible de s'en sortir en se formant en même temps sur le **langage** et sur le **framework/librairie** que l'on utilise il y a quelques inconvénients à cela selon moi :
 
-* **Une dépendance au framework/librairie :** en découvrant un langage directement avec une "surcouche" on a tendance à être perdu quand on nous l'enlève ! Le meilleur exemple étant jQuery et le Javascript : 
-* **Des difficultés à résoudre les bugs :**
-* **Une baisse de qualité :** 
+* **Une dépendance au framework/librairie :** en découvrant un langage directement avec une "surcouche" on a tendance à être perdu quand on nous l'enlève ! Le meilleur exemple étant jQuery et le Javascript : on s'habitue à  des méthodes propres à jQuery et on ne fait pas forcément la différence entre ce qui appartient au langage et au framework. 
+* **Des difficultés à résoudre les bugs :** Étant donné que nos connaissances sur le langage et sur le framework/librairie sont bancale on peut vite se retrouver perdu sur la provenance du bug : _Est-ce que mon bug provient d'une mauvaise utilisation du framework ou du langage ?_
+* **Une baisse de qualité :** Des connaissances bancales dans un langage implique forcément un code peu optimisé et peu lisible lorsque celui-ci devient complexe.
+
