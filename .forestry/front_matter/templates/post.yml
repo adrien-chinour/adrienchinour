@@ -44,5 +44,3 @@ fields:
   type: tag_list
   default: []
   label: Categories
-pages:
-- content/post/débuter-sur-un-nouveau-langage-avec-codewars.md
