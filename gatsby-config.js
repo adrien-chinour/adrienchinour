@@ -6,7 +6,14 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
     siteMetadata: {
-        siteTitleAlt: `Adrien Chinour - Développeur indépendant`,
+        siteTitle: `Adrien`,
+        siteTitleAlt: `Adrien Chinour`,
+        siteHeadline: `Développeur web indépendant.`,
+        siteUrl: `https://adrienchinour.me`,
+        siteDescription: `Adrien Chinour, développeur Web indépendant.`,
+        siteLanguage: `fr`,
+        siteImage: `/banner.jpg`,
+        author: `@adrienchinour`,
     },
     plugins: [
         {
@@ -22,6 +29,10 @@ module.exports = {
                         title: `À Propos`,
                         slug: `/about`,
                     },
+                    {
+                        title: `Contact`,
+                        slug: `/contact`,
+                    }
                 ],
                 externalLinks: [
                     {
@@ -32,6 +43,10 @@ module.exports = {
                         name: `Stack Overflow`,
                         url: `https://stackoverflow.com/users/13884867/adrien-chinour`,
                     },
+                    {
+                        name: `Mon CV`,
+                        url: `https://adrienchinour.me/adrien-chinour.pdf`
+                    }
                 ],
             },
         },
@@ -47,7 +62,7 @@ module.exports = {
             options: {
                 name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
                 short_name: `minimal-blog`,
-                description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+                description: `Adrien Chinour, développeur Web indépendant.`,
                 start_url: `/`,
                 background_color: `#fff`,
                 theme_color: `#6B46C1`,
