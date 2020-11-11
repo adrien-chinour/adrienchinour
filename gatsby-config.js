@@ -45,7 +45,7 @@ module.exports = {
                     },
                     {
                         name: `Mon CV`,
-                        url: `https://adrienchinour.me/adrien-chinour.pdf`
+                        url: `/adrien-chinour.pdf`
                     }
                 ],
             },
