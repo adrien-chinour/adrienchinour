@@ -40,7 +40,7 @@ const Homepage = ({posts}: PostsProps) => {
             <section sx={{mb: [5, 6, 7], p: {fontSize: [1, 2, 3], mt: 2}}}>
                 <Hero/>
             </section>
-            <Title text="Derniers articles">
+            <Title text="Mes derniers articles">
                 <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>Voir tous les articles</Link>
             </Title>
             <Listing posts={posts} showTags={false}/>
