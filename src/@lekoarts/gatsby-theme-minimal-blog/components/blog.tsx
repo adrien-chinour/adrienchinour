@@ -1,4 +1,5 @@
 /** @jsx jsx */
+// @ts-ignore
 import {jsx, Heading, Link as TLink} from "theme-ui"
 import {Link} from "gatsby"
 import {Flex} from "@theme-ui/components"
