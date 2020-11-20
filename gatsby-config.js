@@ -12,14 +12,14 @@ module.exports = {
         siteUrl: `https://adrienchinour.me`,
         siteDescription: `Adrien Chinour, développeur Web indépendant.`,
         siteLanguage: `fr`,
-        siteImage: `static/banner.jpg`,
+        siteImage: `static/banner.png`,
         author: `@adrienchinour`,
     },
     plugins: [
         {
             resolve: `gatsby-plugin-social-banners`,
             options: {
-                baseImg: 'static/banner.jpg'
+                baseImg: `static/banner.png`
             }
         },
         {
@@ -70,10 +70,15 @@ module.exports = {
                 short_name: `adrienchinour.me`,
                 description: `Adrien Chinour, développeur Web indépendant.`,
                 start_url: `/`,
+                lang: `fr`,
                 background_color: `#fff`,
                 theme_color: `#6B46C1`,
                 display: `standalone`,
-                icon: "static/icon.png"
+                icon: `static/icon.png`,
+                cache_busting_mode: `name`,
+                icon_options: {
+                    purpose: `any maskable`,
+                },
             },
         },
         `gatsby-plugin-offline`,
