@@ -16,10 +16,11 @@
     "@lekoarts/gatsby-theme-minimal-blog": "^2.7.4",
     "gatsby": "^2.26.1",
     "gatsby-plugin-google-analytics": "^2.5.0",
-    "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-manifest": "^2.7.0",
     "gatsby-plugin-netlify": "^2.5.0",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-sitemap": "^2.6.0",
+    "gatsby-plugin-social-banners": "^1.0.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.16",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
