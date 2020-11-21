@@ -3,7 +3,13 @@ new_page_extension: md
 auto_deploy: false
 admin_path: 
 webhook_url: 
-sections: 
+sections:
+- type: directory
+  path: ''
+  label: Articles
+  create: all
+  match: content/posts/*
+  new_doc_ext: ".mdx"
 upload_dir: static
 public_path: ''
 front_matter_path: ''
