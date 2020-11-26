@@ -57,9 +57,14 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-google-analytics`,
+            resolve: `gatsby-plugin-google-gtag`,
             options: {
-                trackingId: process.env.GOOGLE_ANALYTICS_ID,
+                // You can add multiple tracking ids and a pageview event will be fired for all of them.
+                trackingIds: [
+                    process.env.GOOGLE_ANALYTICS_ID, // Google Analytics / GA
+                    process.env.AW_CONVERSION_ID, // Google Ads / Adwords / AW
+                    process.env.DC_FLOODIGHT_ID, // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+                ],
             },
         },
         `gatsby-plugin-sitemap`,
