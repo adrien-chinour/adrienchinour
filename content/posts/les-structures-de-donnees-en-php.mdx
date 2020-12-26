@@ -1,0 +1,75 @@
+---
+title: "Les structures de données en PHP"
+date: 2020-12-21
+slug: "/les-structures-de-donnees-en-php"
+tags:
+  - PHP
+---
+
+En licence informatique j'ai appris tout un tas de structure de données : les tableaux, les files, les piles, les tables de hachage.
+Mais depuis que je fais du PHP, j'ai un peu perdu tout ça puisque la seule structure que j'utilise c'est : **array**.
+
+<div style="text-align:center">
+    <img src="migration-php8/elephpant.jpg" width="100%" height="auto"/>
+</div>
+
+## Il est où l'objet ? Il est où ?
+
+Déjà un gros problème que j'ai avec les tableaux en PHP, c'est que ce ne sont pas des objets il faut passer par des fonctions
+qui ne sont pas toujours simple à utiliser. Même après plusieurs années, je n'arrive pas à me souvenir de l'ordre des paramètres
+ou si le tableau est passé par référence ou par valeur.
+
+Prenons l'exemple suivant qui va calculer la moyenne des notes dans un tableau associatif :
+
+```php
+$data = [
+    ['name' => 'Jean', 'note' => 8],
+    ['name' => 'Alice', 'note' => 12],
+    ['name' => 'Marcel', 'note' => 3],
+    ['name' => 'Bob', 'note' => 18],
+    ['name' => 'Elodie', 'note' => null],
+];
+
+$notes = array_filter(array_column($data, 'note'), fn($item) => null !== $item);
+$average = array_sum($notes) / count($notes);
+```
+> Les fonctions PHP pour manipuler les array : <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/manual/fr/ref.array.php">ici</a>
+
+Une alternative, pour les utilisateurs de Symfony est d'utiliser les Collections Doctrine (_doctrine/collections_).
+```php
+$collection = (new \Doctrine\Common\Collections\ArrayCollection($data))
+    ->map(fn($item) => $item['note'])
+    ->filter(fn($item) => null !== $item);
+$average = array_sum($collection->toArray()) / $collection->count();
+```
+
+> La documentation de <a rel="noreferrer noopener" target="_blank" href="https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/index.html">Doctrine Collection</a>
+
+On ne se simplifie pas forcément la vie, c'est même plus complexe qu'en utilisant les fonctions PHP.
+(Cela n'est d'ailleurs pas l'objectif de ce package).
+
+Une autre alternative bien plus intéressante est celle fourni par Lavarel : _tightenco/collect_
+```php
+$average = collect($data)->avg(fn($item) => $item['note']);
+```
+
+> La documentation de <a rel="noreferrer noopener" target="_blank" href="https://laravel.com/docs/8.x/collections">Laravel Collection</a>
+
+On obtient un code lisible avec une méthode qui vient "wrapper" toute notre logique autour de notre objectif : obtenir la moyenne.
+Avec l'arrivée des fonctions fléchés en PHP 7.4 on gagne encore plus en lisibilité.
+
+Je sais que ce cas de la moyenne semble bête mais il est cependant bien pratique,
+sur un projet ou j'ai eu besoin de calculer plusieurs moyennes avec des quartiles et plein d'autres statistiques à partir d'évaluations,
+j'y ai trouvé un gros avantage d'un point de vue expérience développeur.
+
+> Un article au sujet des collections Laravel par Grafikart : <a rel="noreferrer noopener" target="_blank" href="https://www.grafikart.fr/tutoriels/collection-laravel-php-1173">Les Collections Laravel</a>
+
+Il y a surement d'autres librairies similaires, j'ai trouvé _voku/arrayy_ par exemple qui semble relativement complète. (<a rel="noreferrer noopener" target="_blank" href="https://github.com/voku/Arrayy">GitHub</a>)
+
+## Et les autres structures de données ?
+
+Même si quand on fait du web on n'a pas trop l'usage il peut être intéressant dans certains cas d'utiliser d'autres types de structures.
+
+PHP fourni par défaut un ensemble de structure de données comme présenté dans <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/manual/fr/spl.datastructures.php">la documentation</a>.
+
+On y retrouve les structures de données communément utilisés.
