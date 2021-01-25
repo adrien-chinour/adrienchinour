@@ -6,17 +6,57 @@ tags:
   - PHP
 ---
 
-
+Array, array ou array ? Oui c'est vrai que PHP n'est pas riche en structure de données mais voyons
+ensemble un peu ce qu'il en est réellement ? 😊
 
 <div style="text-align:center">
   <img src="migration-php8/elephpant.jpg" width="100%" height="auto" />
 </div>
 
-## Il est où l'objet ? Il est où ?
+## Les **array**
+
+La structure de données par excellence en PHP c'est array, elle est _quasiment_ seule et on l'utilise comme liste,
+table de hachage, pile, file, etc.
+C'est plutôt utile notamment pour les débutants qui ne se retrouve pas étouffer par le typage fort de certains langages.
+Mais c'est aussi ça qui en fait un langage détesté par de nombreux développeur. 👹
+
+Voyons déjà le fonctionnement de cette structure de donnée _magique_... 🧐
+
+_Array_ est en réalité un **dictionnaire ordonné**, avec un couple clé/valeur. Dans le cas où l'on ne défini pas de clé alors
+PHP défini des clés numérique : 0, 1, 2, etc. Pour faire le lien entre cette clé et la valeur une table de hachage est créée.
+
+Je ne vais pas rentrer dans les détails, je vous laisse lire <a rel="noreferrer noopener" target="_blank" href="http://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html">cet article</a> de Nikita Popov
+qui explique en détail l'évolution entre **PHP 5** et **PHP 7** sur l'implémentation des tableaux en PHP.
+
+> La documentation de Zend fourni aussi une explication très claire sur l'implémentation et l'API interne de PHP pour les arrays : <a rel="noreferrer noopener" target="_blank" href="https://www.zend.com/php-arrays">PHP Arrays</a>
+
+Et le gros problème avec cette implémentation c'est que même si ça répond à un grand nombre de cas on a parfois des performances désastreuses
+sur certaines applications juste parce que l'on utilise des functions PHP très peu performante.
+
+Prenons le cas de <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/manual/fr/function.array-shift.php">`array_shift`</a> qui permet d'extraire le premier élément d'un array.
+De part sa structure interne un array avec des clés numérique va décaler chacune d'elles lors d'un `array_shift` ce qui cause une complexité de O(n). 😱
+Sur des petits tableau l'opération n'est pas forcément couteuse mais lorsqu'on manipule des tableaux plus grands cela peut vraiment être un problème.
+Ainsi il est moins couteux de faire un `array_reverse` puis `array_pop` lorsque les index du tableau ne sont pas important.
+
+```php
+$stack = array("orange", "banana", "apple", "raspberry");
+
+// bad perf
+$fruit = array_shift($stack);
+
+// better perf
+$stack = array_reverse($stack);
+$fruit = array_pop($stack);
+```
+
+Des cas comme ça il y en a pas énormément et il est vrai uniquement sur des gros volumes de données mais on peut tout de même
+se poser la question des alternatives, que ce soit pour le confort et la compréhension du code comme de la performance.
+
+## Il est où l'objet ? Il est où ? 🎶
 
 Déjà un gros problème que j'ai avec les tableaux en PHP, c'est que ce ne sont pas des objets il faut passer par des fonctions
 qui ne sont pas toujours simple à utiliser. Même après plusieurs années, je n'arrive pas à me souvenir de l'ordre des paramètres
-ou si le tableau est passé par référence ou par valeur.
+ou si le tableau est passé par référence ou par valeur. 😤
 
 Prenons l'exemple suivant qui va calculer la moyenne des notes dans un tableau associatif :
 
@@ -33,7 +73,7 @@ $notes = array_filter(array_column($data, 'note'), fn($item) => null !== $item);
 $average = array_sum($notes) / count($notes);
 ```
 
-> Les fonctions PHP pour manipuler les array : <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/manual/fr/ref.array.php">ici</a>
+On comprend ce que cela fait mais honnêtement la lisibilité est pas top, on remarque vite que l'imbrication des fonctions peut vite poser problème.
 
 Une alternative, pour les utilisateurs de Symfony est d'utiliser les Collections Doctrine (_doctrine/collections_).
 
@@ -46,8 +86,9 @@ $average = array_sum($collection->toArray()) / $collection->count();
 
 > La documentation de <a rel="noreferrer noopener" target="_blank" href="https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/index.html">Doctrine Collection</a>
 
-On ne se simplifie pas forcément la vie, c'est même plus complexe qu'en utilisant les fonctions PHP.
-L'intérêt de cette librairie est de fournir une implémentation utile pour doctrine ORM dans le traitement des collections d'entités,
+On ne se simplifie pas forcément la vie, c'est même plus complexe puisque l'on mélange la manipulation de notre objet Collection avec les fonctions natives PHP.
+
+L'intérêt de cette librairie est de fournir une implémentation utile pour doctrine dans le traitement des collections d'entités,
 elle n'est donc pas faite pour remplacer les fonctions natives de PHP mais peut toujours être utile pour certaines manipulations : map, filtre, etc.
 
 Une autre alternative bien plus intéressante pour manipuler les tableaux php est celle fourni par Lavarel : _tightenco/collect_
@@ -67,33 +108,54 @@ j'y ai trouvé un gros avantage d'un point de vue expérience développeur.
 
 La complexité en temps et en mémoire reste la même puisque ces librairies ne sont que des wrapper objet des fonctions PHP.
 
-> Un article au sujet des collections Laravel par Grafikart : <a rel="noreferrer noopener" target="_blank" href="https://www.grafikart.fr/tutoriels/collection-laravel-php-1173">Les Collections Laravel</a>
-
 Il y a surement d'autres librairies similaires, j'ai trouvé _voku/arrayy_ par exemple qui semble relativement complète. (<a rel="noreferrer noopener" target="_blank" href="https://github.com/voku/Arrayy">GitHub</a>)
 
 ## Et les autres structures de données ?
 
-Quand on parle de tableaux en PHP on rassemble plusieurs structures de données en une.
-
-Par exemple lorsqu'on a besoin d'une liste d'éléments on ne spécifie pas de clé ainsi PHP définira lui-même des index
-avec des valeurs numérique de 0 à n-1 (n étant la taille de notre tableau).
-Dans le cas ou nous spécifions des clés alphanumérique alors PHP créer une table de translation ou table de hachage de la taille de notre tableau pour retrouver plus rapidement les éléments par la suite.
+Comme on l'a vu au début PHP semble proposer une seule structure de donnée (_array_) mais depuis **PHP 7** nous avons la **SPL**...
 
 Grâce à la SPL (Standard PHP Library) nous avons des structures de données supplémentaires présentées dans <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/manual/fr/spl.datastructures.php">la documentation PHP</a>.
 
-> Je vous conseille cette vidéo qui explique un peu tout ça : <a rel="noreferrer noopener" target="_blank" href="https://www.youtube.com/watch?v=tX1jbqnjrR0">Les structures de données en PHP - Frédéric BOUCHERY - AFUP Day 2020 Nantes</a>
+> Je vous conseille cette vidéo qui explique un peu tout ce que je vais dire dans cette partie : <a rel="noreferrer noopener" target="_blank" href="https://www.youtube.com/watch?v=tX1jbqnjrR0">Les structures de données en PHP - Frédéric BOUCHERY - AFUP Day 2020 Nantes</a>
 
-Mais le problème majeur de la SPL est que des opérations non propre à une structure de donnée soit possible.
-On se retrouve avec SplStack qui permet de faire des shift/unshift ou des push/pop.
+Mais le problème majeur de la SPL est que des opérations qui ne devraient pas être présente dans une structure de donnée soit possible.
+On se retrouve avec SplStack qui permet de faire des shift/unshift ou des push/pop. 🤨
 
-Comme présenté dans la vidéo cité precedent nous avons aussi la possibilité d'utiliser l'extension Data Structure qui corrige les problèmes de la SPL et propose plusieurs autres structures de données.
+> TODO parler de SplFixedArray
 
-Le problème de cette extension est qu'elle n'est pas incluse de base dans PHP il faut donc l'installer ou alors utiliser le polyfill php-ds.
-
+Une autre extension qui malheureusement n'est pas présente de base dans PHP est l'extension Data Structure. Elle corrige tous les problèmes de la SPL en allant encore plus loin.
 Je ne vais pas expliquer en détails les structures disponibles, je vous laisse regarder <a rel="noreferrer noopener" target="_blank" href="https://www.php.net/manual/fr/book.ds.php">la documentation</a>.
 
 D'un point de vue performance il y a un intérêt sur des gros volumes de données mais comme dans les librairies orientées objet pour la manipulation de tableau on améliore surtout l'expérience développeur.
 
 > Un article traitant des performances <a rel="noreferrer noopener" target="_blank" href="https://medium.com/@rtheunissen/efficient-data-structures-for-php-7-9dda7af674cd">Efficient data structures for PHP 7</a>.
 
+Pour vous aider à comprendre l'utilité voici un exemple qui reprend le problème de `array_shift` utile lorsqu'on utilise une file :
 
+```php
+// FIFO array style
+$queue = ['a', 'b'];
+$queue[] = 'c'; // on ajoute un élément
+array_push($queue, 'd'); // la aussi
+$item = array_shift($queue); // on enlève le premier élément, en O(n)...
+
+// FIFO Spl style
+$queue = new SplQueue();
+$queue->enqueue('a'); // on ajoute un élément à la fin
+$queue->push('b'); // on ajoute aussi un élément à la fin...
+$queue->add(2, 'c'); // on peut aussi ajouter à un index...
+$item = $queue->dequeue(); // on enlève le premier élément en O(1)
+
+// FIFO DS style
+$queue = new \Ds\Queue();
+$queue->push("a"); // on ajoute un élément
+$queue->push("b", "c"); // on ajoute plusieurs éléments
+$queue->push(...["d", "e"]); // on ajoute plusieurs élément depuis un array
+$item = $queue->pop(); // on enlève le premier élément en O(1)
+```
+
+Alors oui on peut faire les choses bien avec la Spl ou avec array mais ça reste plus sympa avec DS. 😉
+
+L'utilisation de structure de données autre que _array_ renforce l'utilisation de PHP dans des domaines annexes au web :
+pour des cron ou des tâches asynchrones par exemple. _Array_ est indispensable à PHP, c'est simple et efficace, mais dans certains
+cas **Data Structure** ou **Laravel Collection** rendent les projets bien plus sympa ! 🥳
