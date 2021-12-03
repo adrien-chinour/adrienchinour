@@ -59,6 +59,7 @@ const SEO = ({
       <meta name="gatsby-theme" content="@lekoarts/gatsby-theme-minimal-blog" />
       {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
       {children}
+      <script async defer data-domain="adrienchinour.me" src="http://analytics.chinour.dev/js/plausible.js"></script>
     </Helmet>
   )
 }
