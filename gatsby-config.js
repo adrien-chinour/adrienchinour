@@ -19,7 +19,7 @@ module.exports = {
             resolve: `gatsby-plugin-plausible`,
             options: {
                 domain: `adrienchinour.me`,
-                customDomain: `analytics.chinour.dev/js/plausible.js?original=`,
+                customDomain: `https://analytics.chinour.dev/js/plausible.js?original=`,
             },
         },
         {
