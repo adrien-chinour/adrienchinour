@@ -16,6 +16,12 @@ module.exports = {
         author: `@adrienchinour`,
     },
     plugins: [{
+            resolve: `gatsby-plugin-plausible`,
+            options: {
+                domain: `https://analytics.chinour.dev/`,
+            },
+        },
+        {
             resolve: `gatsby-plugin-umami`,
             options: {
                 websiteId: 'a090507a-de66-4f88-9551-bc4913a02134',
