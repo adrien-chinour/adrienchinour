@@ -15,7 +15,16 @@ module.exports = {
         siteImage: `/static/banner.png`,
         author: `@adrienchinour`,
     },
-    plugins: [
+    plugins: [{
+            resolve: `gatsby-plugin-umami`,
+            options: {
+                websiteId: 'a090507a-de66-4f88-9551-bc4913a02134',
+                srcUrl: 'https://umami.chinour.dev/umami.js',
+                includeInDevelopment: false,
+                autoTrack: true,
+                respectDoNotTrack: true
+            },
+        },
         {
             resolve: `gatsby-plugin-social-banners`,
             options: {
@@ -26,8 +35,7 @@ module.exports = {
             resolve: `@lekoarts/gatsby-theme-minimal-blog`,
             // See the theme's README for all available options
             options: {
-                navigation: [
-                    {
+                navigation: [{
                         title: `Blog`,
                         slug: `/blog`,
                     },
@@ -40,8 +48,7 @@ module.exports = {
                         slug: `/contact`,
                     }
                 ],
-                externalLinks: [
-                    {
+                externalLinks: [{
                         name: `GitHub`,
                         url: `https://github.com/adrien-chinour`,
                     },
