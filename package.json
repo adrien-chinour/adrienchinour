@@ -13,10 +13,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@lekoarts/gatsby-theme-minimal-blog": "^2.7.4",
-    "gatsby": "^2.26.1",
+    "@lekoarts/gatsby-theme-minimal-blog": "^6.0.5",
+    "gatsby": "^5.5.0",
     "gatsby-plugin-google-gtag": "^2.3.0",
-    "gatsby-plugin-manifest": "^2.7.0",
+    "gatsby-plugin-manifest": "^5.5.0",
     "gatsby-plugin-netlify": "^2.5.0",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-sitemap": "^2.6.0",
