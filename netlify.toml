@@ -1,0 +1,29 @@
+[[redirects]]
+    from = "https://adrienchinour.me/blog"
+    to = "https://www.udfn.fr"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://adrienchinour.me/les-structures-de-donnees-en-php"
+    to = "https://www.udfn.fr/article/les-structures-de-donnees-en-php.html"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://adrienchinour.me/gestionnaire-alias-email"
+    to = "https://www.udfn.fr"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://adrienchinour.me/migration-php8"
+    to = "https://www.udfn.fr/article/migration-vers-php-8.html"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://adrienchinour.me/temps-passee-sur-netflix"
+    to = "https://www.udfn.fr/article/combien-de-temps-avez-vous-passe-sur-netflix.html"
+    status = 301
+    force = true
